@@ -8,7 +8,7 @@ Created to automate the process of writing a readme. This was made using node.js
 ## Installation
 Fork the repo, Clone the repo, then run `node index.js` in the terminal. Keep in mind your original `README.md`file will be overwritten.<br>
 ## Demo
-
+![readme-vid](https://user-images.githubusercontent.com/61998811/137577151-9b708797-56e6-4738-bdbb-4c770706b526.gif)
 ## Contact Me <br>
 ### username: @eliglezz<br>
 ### email: glez.eliezer@gmail.com<br>
