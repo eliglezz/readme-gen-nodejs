@@ -11,48 +11,35 @@ const startPrompt = () => {
         {
             type: "input",
             name: "description",
-            message:
-            "Add a description. Include motivation, reason for building, what problem it solved, and, what you learned",
+            message: "Add a description. Include motivation, reason for building, what problem it solved, and, what you learned",
         },
         {
-            type: "checkbox",
+            type: "list",
             name: "toc",
-            message:
-            "What will be added with table of contents",
-            choices: [
-                {
-                    name: "installTOC",
-                    value: "- [Installation](#installation)",
-                },
-                {
-                    name: "usageTOC",
-                    value: "- [Usage](#usage)",
-                },
-                {
-                    name: "creditsTOC",
-                    value: "- [Credits](#credits)",
-                },
-                {
-                    name: "licenseTOC",
-                    value: "- [License](#license)",
-                },
-            ]
-
+            message: "Do you want a table of contents",
+            choices: [{name: "yes", value: "## Table of Contents<br>- [Description](#description)<br>- [Installation](#installation)<br>- [License](#license)<br>- [Contact Me](#contact)<br>"}, { name: "no", value:""}]
         },
         {
             type: "input",
-            name: "install",
-            message: "How can the project be installed/used",
+            name: "installation",
+            message: "How can it be installed?",
         },
         {
-            type: "input",
+            type: "list",
             name: "screen",
-            message: "Add you screenshot path(./assets/images/screenshot.png)",
+            message: "Add screenshot? (make sure you have screenshot.png in assets/images)",
+            choices: [{name:"yes", value: "![alt text](./assets/images/screenshot.png)"},{name:"no", value:""}]
         },
         {
             type: "input",
-            name: "credits",
-            message: "Add any credits",
+            name: "username",
+            message: "What is your github username (@user)",
+        },
+        {
+            type: "input",
+            name: "email",
+            message: "enter a contact email"
+
         },
         {
             type: "list",
@@ -82,31 +69,23 @@ const startPrompt = () => {
     .catch((err) => console.error(err));
 };
 
-const generateReadme = ({title, description, installation, screen, credits, license, installationTOC: installationTOC, usageTOC, creditsTOC, licenseTOC }) =>
+const generateReadme = ({title, description, toc, installation, screen, license, username, email,}) =>
 `
-# ${title}
+# ${title}<br>
+${toc}
 ## Description
-${description}
-## Table of Contents
-${installationTOC}  
-${usageTOC}
-${creditsTOC}
-${licenseTOC}
+${description}<br>
 ## Installation
-${installation}
-## Usage
-![alt text](${screen})
-## Credits
-${credits}
+${installation}<br>
+
+${screen}
 ## License
-${license}
+${license}<br>
+## Contact Me <br>
+### username: ${username}<br>
+### email: ${email}<br>
+
 `
+
 
 startPrompt();
-
-// const init = () => {
-//   startPrompt()
-    
-// };
-
-// init();
