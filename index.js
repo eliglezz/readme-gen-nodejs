@@ -17,7 +17,7 @@ const startPrompt = () => {
             type: "list",
             name: "toc",
             message: "Do you want a table of contents",
-            choices: [{name: "yes", value: "## Table of Contents<br>- [Description](#description)<br>- [Installation](#installation)<br>- [License](#license)<br>- [Contact Me](#contact)<br>"}, { name: "no", value:""}]
+            choices: [{name: "yes", value: "## Table of Contents<br>- [Description](#description)<br>- [Installation](#installation)<br>- [Contact Me](#contact)<br>"}, { name: "no", value:""}]
         },
         {
             type: "input",
@@ -71,17 +71,16 @@ const startPrompt = () => {
 
 const generateReadme = ({title, description, toc, installation, screen, license, username, email,}) =>
 `
-# ${title}<br>
+# ${title}
+## License
+${license}<br>
 ${toc}
 ## Description
 ${description}<br>
 ## Installation
 ${installation}<br>
-
 ${screen}
-## License
-${license}<br>
-## Contact Me <br>
+## Contact Me/Contributors <br>
 ### username: ${username}<br>
 ### email: ${email}<br>
 
